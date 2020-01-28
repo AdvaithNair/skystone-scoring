@@ -283,6 +283,10 @@ function capZero() {
         } else if (capstone == 2) {
             endScore -= 10;
         }
+        capstoneOne = 0;
+        document.getElementById("capOne").innerHTML = capstoneOne;
+        capstoneTwo = 0;
+        document.getElementById("capTwo").innerHTML = capstoneTwo;
         updateScores();
 
         capstone = 0;
@@ -298,10 +302,11 @@ function capOne() {
         if(capstone == 0) {
             endScore += 5;
         } else if (capstone == 2) {
+            capstoneTwo = 0;
+            document.getElementById("capTwo").innerHTML = capstoneTwo;
             endScore -= 5;
         }
         updateScores();
-
         capstone = 1;
     }
 }
