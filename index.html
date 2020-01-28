@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Skystone Scorer</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  </head>
+  
+  <body>
+    <div id = "header">
+      <h1 class = "text-center" id = "top"><b>SKYSTONE SCORING</b></h1>
+      <p class = "text-center" id = "top">BY FTC 12599 OVERCHARGED</p>
+    </div>
+
+    <div id = "line"></div>
+
+    <!-- AUTO BLOCK -->
+    <!-- AUTO BLOCK -->
+    <!-- AUTO BLOCK -->
+    <div id = "block">
+      <h2 class = "text-center">AUTONOMOUS</h2>
+      <p class = "score" id = "auto">0</p>
+      
+      <div id = "blockcontent">
+        <!-- Skystones -->
+        <h3 class = "text-center" id = "inhead">SKYSTONES</h3>
+        <div id = "row">
+          <button id = "add" onclick = "addSkystone()"><b>+</b></button>
+          <h3 class = "space" id = "skystoneCount">0</h3>
+          <button id = "add" onclick = "subtractSkystone()"><b>-</b></button>
+        </div>
+
+        <!-- Regular Stones Delivered -->
+        <h3 class = "text-center">STONES DELIVERED</h3>
+        <p class = "subtext">NOT COUNTING SKYSTONES</p>
+        <div id = "row">
+          <button id = "add" onclick = "addStone()"><b>+</b></button>
+          <h3 class = "space" id = "stoneCount">0</h3>
+          <button id = "add" onclick = "subtractStone()"><b>-</b></button>
+        </div>
+
+        <!-- Stones Placed -->
+        <h3 class = "text-center">STONES PLACED</h3>
+        <div id = "row">
+          <button id = "add" onclick = "addPlaced()"><b>+</b></button>
+          <h3 class = "space" id = "placedCount">0</h3>
+          <button id = "add" onclick = "subtractPlaced()"><b>-</b></button>
+        </div>
+
+        <!-- Foundation Repositioned -->
+        <h3 class = "text-center">FOUNDATION REPOSITIONED</h3>
+        <div id = "row">
+          <button class="btn" id = "foundationYes" onclick = "foundationYes()"><b>YES</b></button>
+          <button class="btn" id = "foundationNo" onclick = "foundationNo()"><b>NO</b></button>
+        </div>
+
+        <!-- Parked -->
+        <h3 class = "text-center">PARKING</h3>
+        <div id = "row">
+          <button class="btn" id = "parkingZero" onclick = "parkingZero()"><b>0</b></button>
+          <button class="btn" id = "parkingOne" onclick = "parkingOne()"><b>1</b></button>
+          <button class="btn" id = "parkingTwo" onclick = "parkingTwo()"><b>2</b></button>
+        </div>
+
+        <!-- Clear Auto -->
+        <div id = "row">
+          <button class="btn" id = "clearAuto" onclick = "clearAuto()"><b>CLEAR AUTONOMOUS</b></button>
+        </div>
+        
+      </div>
+    </div>
+    <!-- AUTO BLOCK -->
+    <!-- AUTO BLOCK -->
+    <!-- AUTO BLOCK -->
+
+    <!-- TELE-OP BLOCK -->
+    <!-- TELE-OP BLOCK -->
+    <!-- TELE-OP BLOCK -->
+    <div id = "block">
+      <h2 class = "text-center" id = "fixed">TELE-OP</h2>
+      <p class = "score" id = "tele">0</p>
+
+      <div id = "blockcontent">
+        <!-- Stones Delivered -->
+        <h3 class = "text-center" id = "inhead">STONES DELIVERED</h3>
+        <div id = "row">
+          <button id = "add" onclick = "addDelivered()"><b>+</b></button>
+          <h3 class = "space" id = "deliveredCount">0</h3>
+          <button id = "add" onclick = "subtractDelivered()"><b>-</b></button>
+        </div>
+
+        <!-- Stones Placed -->
+        <h3 class = "text-center">STONES PLACED</h3>
+        <p class = "subtext">AT END OF MATCH</p>
+        <div id = "row">
+          <button id = "add" onclick = "addTelePlaced()"><b>+</b></button>
+          <h3 class = "space" id = "telePlacedCount">0</h3>
+          <button id = "add" onclick = "subtractTelePlaced()"><b>-</b></button>
+        </div>
+
+        <!-- Tallest Skyscraper Height -->
+        <h3 class = "text-center">TALLEST SKYSCRAPER HEIGHT</h3>
+        <div id = "row">
+          <button id = "add" class = "addLevel" onclick = "addLevel()"><b>+</b></button>
+          <h3 class = "space" id = "teleLevelCount">0</h3>
+          <button id = "add" onclick = "subtractLevel()"><b>-</b></button>
+        </div>
+
+        <!-- Clear Tele-Op -->
+        <div id = "row">
+          <button class="btn" id = "clearTele" onclick = "clearTele()"><b>CLEAR TELE-OP</b></button>
+        </div>
+    </div>
+    <!-- TELE-OP BLOCK -->
+    <!-- TELE-OP BLOCK -->
+    <!-- TELE-OP BLOCK -->
+
+    <!-- END GAME BLOCK -->
+    <!-- END GAME BLOCK -->
+    <!-- END GAME BLOCK -->
+    <div id = "block">
+      <h2 class = "text-center" id = "fixed">END GAME</h2>
+      <p class = "score" id = "end">0</p>
+
+      <div id = "blockcontent">
+        <!-- Capstones -->
+        <h3 class = "text-center" id = "inhead">CAPSTONES</h3>
+        <div id = "row">
+          <button class="btn" id = "capstoneZero" onclick = "capZero()"><b>0</b></button>
+          <button class="btn" id = "capstoneOne" onclick = "capOne()"><b>1</b></button>
+          <button class="btn" id = "capstoneTwo" onclick = "capTwo()"><b>2</b></button>
+        </div>
+
+        <!-- Capstone 1 Level -->
+        <h3 class = "text-center">CAPSTONE 1 LEVEL</h3>
+        <div id = "row">
+          <button id = "add" onclick = "addCapOne()"><b>+</b></button>
+          <h3 class = "space" id = "capOne">0</h3>
+          <button id = "add" onclick = "subtractCapOne()"><b>-</b></button>
+        </div>
+
+        <!-- Capstone 2 Level -->
+        <h3 class = "text-center">CAPSTONE 2 LEVEL</h3>
+        <div id = "row">
+          <button id = "add" onclick = "addCapTwo()"><b>+</b></button>
+          <h3 class = "space" id = "capTwo">0</h3>
+          <button id = "add" onclick = "subtractCapTwo()"><b>-</b></button>
+        </div>
+
+        <!-- Foundation Moved -->
+        <h3 class = "text-center">FOUNDATION MOVED</h3>
+        <div id = "row">
+          <button class="btn" id = "foundationMovedYes" onclick = "foundationMovedYes()"><b>YES</b></button>
+          <button class="btn" id = "foundationMovedNo" onclick = "foundationMovedNo()"><b>NO</b></button>
+        </div>
+
+        <!-- Parked -->
+        <h3 class = "text-center">PARKED</h3>
+        <div id = "row">
+          <button class="btn" id = "parkZero" onclick = "parkZero()"><b>0</b></button>
+          <button class="btn" id = "parkOne" onclick = "parkOne()"><b>1</b></button>
+          <button class="btn" id = "parkTwo" onclick = "parkTwo()"><b>2</b></button>
+        </div>
+
+        <!-- Clear End Game -->
+        <div id = "row">
+          <button class="btn" id = "clearEnd" onclick = "clearEnd()"><b>CLEAR END GAME</b></button>
+        </div>
+    </div>
+    <!-- END GAME BLOCK -->
+    <!-- END GAME BLOCK -->
+    <!-- END GAME BLOCK -->
+
+    <div id = "block">
+      <h2 class = "text-center" id = "fixed">SCORING</h2>
+      <div id = "blockcontent">
+        <h3 class = "text-center" id = "inhead">AUTONOMOUS</h3>
+        <p class = "score" id = "auto2">0</p>
+
+        <h3 class = "text-center">TELE-OP</h3>
+        <p class = "score" id = "tele2">0</p>
+
+        <h3 class = "text-center">END GAME</h3>
+        <p class = "score" id = "end2">0</p>
+
+        <div id = "finalScore">
+          <h3 class = "text-center" id = "big">TOTAL SCORE</h3>
+          <p class = "score" id = "totalScore">0</p>
+        </div>
+
+        <!-- Clear End Game -->
+        <div id = "row">
+          <button class="btn" id = "clearAll" onclick = "clearAll()"><b>CLEAR ALL</b></button>
+        </div>
+      </div>
+    </div>
+
+    <div id = "footer">
+      <p class = "text-center" id = "top">&copy; FTC 12599 OVERCHARGED</p>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src = "assets/js/main.js"></script>
+  </body>
+</html>
