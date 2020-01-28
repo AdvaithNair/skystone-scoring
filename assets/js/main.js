@@ -221,10 +221,13 @@ function addTelePlaced() {
 }
 
 function subtractTelePlaced() {
-    if(teleStonesPlaced > 0) {
+    if(teleStonesPlaced > 0 && teleStonesPlaced > teleLevel) {
         document.getElementById("telePlacedCount").innerHTML = --teleStonesPlaced;
         document.getElementById("tele").innerHTML = --teleScore;
         updateScores();
+    } else if (teleStonesPlaced > 0 && teleStonesPlaced <= teleLevel) {
+        subtractLevel();
+        subtractTelePlaced();
     }
 }
 
@@ -232,8 +235,11 @@ function subtractTelePlaced() {
 function addLevel() {
     if(teleLevel < teleStonesPlaced) {
         document.getElementById("teleLevelCount").innerHTML = ++teleLevel;
-    
         teleScore += 2;
+        updateScores();
+    } else if (teleLevel == teleStonesPlaced) {
+        addTelePlaced();
+        addLevel();
         updateScores();
     }
 }
@@ -279,9 +285,9 @@ function capZero() {
         document.getElementById("capstoneTwo").style.backgroundColor = "white";
 
         if(capstone == 1) {
-            endScore -= 5;
+            endScore -= (5 + capstoneOne);
         } else if (capstone == 2) {
-            endScore -= 10;
+            endScore -= (10 + capstoneOne + capstoneTwo);
         }
         capstoneOne = 0;
         document.getElementById("capOne").innerHTML = capstoneOne;
@@ -302,9 +308,9 @@ function capOne() {
         if(capstone == 0) {
             endScore += 5;
         } else if (capstone == 2) {
+            endScore -= (5 + capstoneTwo);
             capstoneTwo = 0;
             document.getElementById("capTwo").innerHTML = capstoneTwo;
-            endScore -= 5;
         }
         updateScores();
         capstone = 1;
@@ -334,6 +340,9 @@ function addCapOne() {
         document.getElementById("capOne").innerHTML = ++capstoneOne;
         document.getElementById("end").innerHTML = ++endScore;
         updateScores();
+    } else if (capstoneOne < teleLevel && capstone == 0) {
+        capOne();
+        addCapOne();
     }
 }
 
@@ -351,6 +360,9 @@ function addCapTwo() {
         document.getElementById("capTwo").innerHTML = ++capstoneTwo;
         document.getElementById("end").innerHTML = ++endScore;
         updateScores();
+    } else if (capstoneTwo < teleLevel && (capstone == 0 || capstone == 1)) {
+        capTwo();
+        addCapTwo();
     }
 }
 
@@ -443,6 +455,7 @@ function clearEnd() {
     capstoneTwo = 0;
     
     capZero();
+    foundationMovedNo();
     parkZero();
 
     endScore = 0;
