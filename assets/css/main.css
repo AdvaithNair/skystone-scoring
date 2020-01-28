@@ -1,3 +1,8 @@
+html {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
 h1 {
   color: white;
   font-size: 300%;
@@ -62,7 +67,7 @@ body {
 }
 
 #add {
-  border: 1px solid black;
+  border: none;
   background-color: white;
   font-size: 16px;
   text-align: center;
@@ -78,7 +83,7 @@ body {
 }
 
 .btn {
-  border: 1px solid black;
+  border: none;
   background-color: white;
   font-size: 16px;
   text-align: center;
