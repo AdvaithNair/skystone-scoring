@@ -39,6 +39,7 @@ h1, h2, h3, p {
 
 body {
   /*background-color: #202020;*/
+  margin: 0px;
 }
 
 #header {
