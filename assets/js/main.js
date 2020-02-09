@@ -247,6 +247,12 @@ function addLevel() {
 function subtractLevel() {
     if(teleLevel > 0) {
         document.getElementById("teleLevelCount").innerHTML = --teleLevel;
+        if(capstoneOne > teleLevel) {
+            subtractCapOne();
+        }
+        if (capstoneTwo > teleLevel) {
+            subtractCapTwo();
+        }
     
         teleScore -= 2;
         updateScores();
