@@ -70,7 +70,7 @@ function subtractStone() {
         autoScore -= 2;
         updateScores();
 
-        if(placed > stones) {
+        if(placed > (stones + skystones)) {
             subtractPlaced();
         }
     }
